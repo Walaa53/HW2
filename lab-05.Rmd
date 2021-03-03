@@ -3,17 +3,13 @@ title: "Lab 05 - Nobel laureates"
 output: github_document
   
 ---
-Team Name:
+Team Name:DS6
 
 Team Members - Name and Student ID
 
-1.
+1.Walaa Ali 2201002583
 
-2.
 
-3.
-
-4.
 
 
 
