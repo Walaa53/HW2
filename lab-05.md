@@ -70,7 +70,7 @@ nrow(nobel_living)
 nobel_living <-nobel %>%  filter(is.na(died_date) ,country!="NA" , gender!="org")
 ```
 
-228 obseration 26 varibles
+228 obseration 26 Varibles
 
 ## Most living Nobel laureates were based in the US when they won their prizes
 
@@ -88,7 +88,7 @@ Physics, Medicine, Chemistry, and Economics.
 
 ``` r
 nobel_living_science <- nobel_living %>%
-filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
+filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics")) 
 ```
 
 Knit, *commit, and push your changes to GitHub with an appropriate
@@ -110,6 +110,22 @@ commit message. Make sure to commit and push all changed files so that
 your Git pane is cleared up afterwards.d*
 
 ## But of those US-based Nobel laureates, many were born in other countries
+
+``` r
+nobel_living_science %>% 
+  ggplot(aes(x  =  country_us, y=category, fill =category)) +
+geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal" )
+```
+
+![](lab-05_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+``` r
+nobel_living_science %>% 
+  ggplot(aes(x  =  country_us, y=category, fill =category)) +
+geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal, not vertical" )
+```
+
+![](lab-05_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 4.  Create a new variable called `born_country_us` that has the value
     `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
