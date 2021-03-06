@@ -66,12 +66,30 @@ nrow(nobel_living)
 
     ## [1] 935
 
+``` r
+nobel_living <-nobel %>%  filter(is.na(died_date) ,country!="NA" , gender!="org")
+```
+
+228 obseration 26 varibles
+
 ## Most living Nobel laureates were based in the US when they won their prizes
 
 Get the code from the Lab document
 
+``` r
+nobel_living <- nobel_living %>%
+mutate(
+country_us = if_else(country == "USA", "USA", "Other")
+)
+```
+
 Next, we will limit our analysis to only the following categories:
 Physics, Medicine, Chemistry, and Economics.
+
+``` r
+nobel_living_science <- nobel_living %>%
+filter(category %in% c("Physics", "Medicine", "Chemistry", "Economics"))
+```
 
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
