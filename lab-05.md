@@ -129,7 +129,14 @@ geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal, not v
 
 4.  Create a new variable called `born_country_us` that has the value
     `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
-    How many of the winners are born in the US?
+    How many of the winners are born in the US? 105 person
+
+``` r
+nobel_living_science <- nobel_living_science %>%
+     mutate(
+         born_country_us = if_else(born_country == "USA", "USA", "Other")
+     )
+```
 
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
