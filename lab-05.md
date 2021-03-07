@@ -112,20 +112,13 @@ your Git pane is cleared up afterwards.d*
 ## But of those US-based Nobel laureates, many were born in other countries
 
 ``` r
-nobel_living_science %>% 
-  ggplot(aes(x  =  country_us, y=category, fill =category)) +
-geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal" )
+ nobel_living_science %>%
+    ggplot(aes(x = country_us,y=category, fill =category)) +
+   geom_bar(stat = "identity", position = "dodge") + 
+   coord_flip()
 ```
 
 ![](lab-05_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
-
-``` r
-nobel_living_science %>% 
-  ggplot(aes(x  =  country_us, y=category, fill =category)) +
-geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal, not vertical" )
-```
-
-![](lab-05_files/figure-gfm/unnamed-chunk-6-2.png)<!-- -->
 
 4.  Create a new variable called `born_country_us` that has the value
     `"USA"` if the laureate is born in the US, and `"Other"` otherwise.
@@ -145,6 +138,7 @@ your Git pane is cleared up afterwards.d*
 5.  Add a second variable to your visualization from Exercise 3 based on
     whether the laureate was born in the US or not. Based on your
     visualization, do the data appear to support Buzzfeed’s claim?
+
     Explain your reasoning in 1-2 sentences.
 
     -   Your final visualization should contain a facet for each
@@ -153,6 +147,14 @@ your Git pane is cleared up afterwards.d*
         laureate won the award in the US or not.
     -   Each bar should have segments for whether the laureate was born
         in the US or not.
+
+``` r
+nobel_living_science %>% 
+     ggplot(aes(x  =  country_us, y=born_country_us , fill =category)) +
+     geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal" )
+```
+
+![](lab-05_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
