@@ -150,6 +150,11 @@ depth, dig and make a lot of filtering to understand the data.
     -   Each bar should have segments for whether the laureate was born in the US or not.
 
 ``` r
+nobel_living_science <- nobel_living_science %>%
+     mutate(
+         born_country_us = if_else(born_country == "USA", "USA", "Other")
+     )
+
 nobel_living_science %>% 
      ggplot(aes(x  =  country_us, y=born_country_us , fill =category)) +
      geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal" )
@@ -167,6 +172,27 @@ your Git pane is cleared up afterwards.*
     (`born_country`) and arrange the resulting data frame in descending
     order of number of observations for each country. Which country is
     the most common?
+
+Germany and United Kingdom.
+
+``` r
+nobel_living_science %>%               filter(born_country_us=="Other",country_us=="USA")%>%count(born_country) %>%arrange(desc(n))
+```
+
+    ## # A tibble: 21 x 2
+    ##    born_country       n
+    ##    <chr>          <int>
+    ##  1 Germany            7
+    ##  2 United Kingdom     7
+    ##  3 China              5
+    ##  4 Canada             4
+    ##  5 Japan              3
+    ##  6 Australia          2
+    ##  7 Israel             2
+    ##  8 Norway             2
+    ##  9 Austria            1
+    ## 10 Finland            1
+    ## # … with 11 more rows
 
 Knit, *commit, and push your changes to GitHub with an appropriate
 commit message. Make sure to commit and push all changed files so that
