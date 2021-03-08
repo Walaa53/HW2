@@ -106,13 +106,10 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 ## But of those US-based Nobel laureates, many were born in other countries
 
 ```{r}
-nobel_living_science %>% 
-  ggplot(aes(x  =  country_us, y=category, fill =category)) +
-geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal" )
-
-nobel_living_science %>% 
-  ggplot(aes(x  =  country_us, y=category, fill =category)) +
-geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal, not vertical" )
+ nobel_living_science %>%
+    ggplot(aes(x = country_us,y=category, fill =category)) +
+   geom_bar(stat = "identity", position = "dodge") + 
+   coord_flip()
 
 ```
 
@@ -132,6 +129,8 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 5.  Add a second variable to your visualization from Exercise 3 based on whether the laureate was born in the US or not.
     Based on your visualization, do the data appear to support Buzzfeed's claim?
+    
+  
     Explain your reasoning in 1-2 sentences.
 
     -   Your final visualization should contain a facet for each category.
@@ -141,7 +140,9 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 ```{r}
 
-
+nobel_living_science %>% 
+     ggplot(aes(x  =  country_us, y=born_country_us , fill =category)) +
+     geom_bar(stat = "identity" , position = "dodge" , orientation="horizontal" )
 
 ```
 
@@ -153,6 +154,7 @@ Knit, *commit, and push your changes to GitHub with an appropriate commit messag
 
 
 ```{r}
+
 
 ```
 

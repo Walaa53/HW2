@@ -139,14 +139,15 @@ your Git pane is cleared up afterwards.d*
     whether the laureate was born in the US or not. Based on your
     visualization, do the data appear to support Buzzfeed’s claim?
 
+yes, Because we at BuzzFeed we analyze the data to search for more data
+and get information from it depending on the available data, we go in
+depth, dig and make a lot of filtering to understand the data.
+
     Explain your reasoning in 1-2 sentences.
 
-    -   Your final visualization should contain a facet for each
-        category.
-    -   Within each facet, there should be a bar for whether the
-        laureate won the award in the US or not.
-    -   Each bar should have segments for whether the laureate was born
-        in the US or not.
+    -   Your final visualization should contain a facet for each category.
+    -   Within each facet, there should be a bar for whether the laureate won the award in the US or not.
+    -   Each bar should have segments for whether the laureate was born in the US or not.
 
 ``` r
 nobel_living_science %>% 
